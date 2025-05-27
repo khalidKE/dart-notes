@@ -204,6 +204,95 @@ int square(int x) => x * x;
 
 ---
 
+---
+
+## 10. ⚙️ Debug vs Release Mode
+
+| Mode        | Description                                   |
+| ----------- | --------------------------------------------- |
+| **Debug**   | Full assertions, slower, helpful logs         |
+| **Release** | Optimized for speed, no debug logs or asserts |
+
+### Flutter Example:
+
+```bash
+flutter run --debug
+flutter run --release
+```
+
+🧪 Use Debug during development.
+🚀 Use Release for production builds.
+
+---
+
+## 11. 🔐 Null Safety
+
+Dart enforces non-nullable types by default.
+
+### ✅ Example:
+
+```dart
+String name = 'Alice'; // Cannot be null
+String? nickname;      // Can be null
+```
+
+### 🔸 Use `!` to assert non-null:
+
+```dart
+print(nickname!); // throws if null
+```
+
+### 🔸 Use `?` for null-aware access:
+
+```dart
+print(nickname?.length); // Safe access
+```
+
+**Goal:** Avoid null reference errors at runtime by catching them at compile time.
+
+Absolutely! Here's the addition to your **README summary** — explaining the **difference between `?` and `!` in Dart**, particularly in the context of **null safety**.
+
+---
+
+## 🔄 `?` vs `!` in Dart (Null Safety)
+
+Dart uses **`?` and `!`** to handle nullable types and null safety.
+
+| Symbol | Meaning                      | Use Case                                                               | Example                           |
+| ------ | ---------------------------- | ---------------------------------------------------------------------- | --------------------------------- |
+| `?`    | Nullable type or safe access | Declares/uses a variable that **can** be null                          | `String? name;` or `name?.length` |
+| `!`    | Non-null assertion           | Tells Dart: "I’m sure this is NOT null" (⚠️ throws error if it **is**) | `print(name!.length);`            |
+
+### ✅ `?` (Nullable / Null-Aware)
+
+Used when a variable **can be null** or when accessing properties/methods **only if it's not null**.
+
+```dart
+String? name = getUserName();   // name can be null
+print(name?.length);           // safe: prints null if name is null
+```
+
+### ⚠️ `!` (Non-Null Assertion)
+
+Used to **force Dart** to treat a nullable variable as non-null — **risky if you're wrong**.
+
+```dart
+String? name = getUserName();
+print(name!.length); // runtime error if name is null
+```
+
+### 🧠 Rule of Thumb:
+
+* Use `?` when you're **not sure** if the value might be null.
+* Use `!` only when you're **certain** the value is not null (e.g., just checked it).
+
+---
+
+Would you like me to update the full summary section with this, or export everything as a `README.md` file for GitHub use?
+
+
+
+
 ## ✅ Summary Table
 
 | Concept               | Use It For                               |
